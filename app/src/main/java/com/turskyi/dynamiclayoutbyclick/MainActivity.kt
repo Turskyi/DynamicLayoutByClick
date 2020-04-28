@@ -1,20 +1,21 @@
 package com.turskyi.dynamiclayoutbyclick
 
-import android.app.Activity
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
-import android.widget.*
+import android.widget.Button
+import android.widget.LinearLayout
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 /** Creating buttons by clicking  */
-class MainActivity : Activity(), View.OnClickListener {
+class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickListener {
     var wrapContent = LinearLayout.LayoutParams.WRAP_CONTENT
 
     /** Called when the activity is first created.  */
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
         btnCreate.setOnClickListener(this)
         btnClear.setOnClickListener(this)
     }
@@ -28,7 +29,7 @@ class MainActivity : Activity(), View.OnClickListener {
                 // переменная для хранения значения выравнивания
                 // по умолчанию пусть будет LEFT
                 var btnGravity = Gravity.START
-                when (rgGravity!!.checkedRadioButtonId) {
+                when (rgGravity.checkedRadioButtonId) {
                     R.id.rbLeft -> btnGravity = Gravity.START
                     R.id.rbCenter -> btnGravity = Gravity.CENTER_HORIZONTAL
                     R.id.rbRight -> btnGravity = Gravity.END

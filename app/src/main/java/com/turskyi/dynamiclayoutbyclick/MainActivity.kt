@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 /** Creating buttons by clicking  */
 class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickListener {
-    var wrapContent = LinearLayout.LayoutParams.WRAP_CONTENT
+    private var wrapContent = LinearLayout.LayoutParams.WRAP_CONTENT
 
     /** Called when the activity is first created.  */
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), View.OnClickList
 
                 // создаем Button, пишем текст и добавляем в LinearLayout
                 val btnNew = Button(this)
-                btnNew.text = etName!!.text.toString()
+                btnNew.text = etName.text.toString()
                 llMain.addView(btnNew, lParams)
             }
             R.id.btnClear -> {
